@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+
+    <!--    4 types of binding Vue js Offers-->
+    <!--    interpolation-->
+    <!--    v-bind => to bind to attributes-->
+    <!--    event listener bindings-->
+    <!--    two way binding-->
+
+    <!--    interpolation data binding-->
+    <h1>{{title}}</h1>
+    <input type="text" v-on:input="changeTitle"/>
+
+    <!--    v-bind to binding on attribute-->
+    <div>
+        <a v-bind:href="link">Google</a>
+
+<!--        shortcut-->
+<!--        <a :href="link">Google</a>-->
+    </div>
+
+    <!--        listen to an event binding-->
+    <div>
+        <p v-on:mousemove="updateCordinates">
+            Change Cordinates: {{x}} / {{y}}
+            - <span v-on:mousemove.stop>Dead Spot No Action on it: </span>
+        </p>
+    </div>
+
+    <div>
+        <input type="text" v-on:keyup.enter="alertHandler(15)">
+    </div>
+
+    <!--    two way data binding-->
+    <hr>
+    <div>
+        <input type="text" v-model="name">
+        {{name}}
+    </div>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            title: 'Hello Vue!',
+            x: 0,
+            y: 0,
+            link: "https://www.google.com",
+            name:"Syed Afzal"
+        },
+        methods: {
+            changeTitle: function (event) {
+                this.title = event.target.value
+            },
+            updateCordinates: function (event) {
+                this.x = event.clientX;
+                this.y = event.clientY;
+            },
+            alertHandler: function (value) {
+                alert(typeof value);
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+    <script src="../vue.js"></script>
+
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+            display: inline-block;
+            margin: 10px;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+
+<!--    dynamic styling with classs using objects-->
+    <div class="demo"
+         @click="attractive = !attractive"
+         :class="divClasses"></div>
+
+<!--    class on key value pair atttached class on true or false/-->
+    <div class="demo" :class="{blue: !attractive}"></div>
+
+<!--    dynamic styling with css class names-->
+    <div class="demo" :class="[color, {red: attractive}]"></div>
+
+    <input type="text" v-model="color"/>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            attractive: false,
+            color: 'green'
+        },
+        computed:{
+            divClasses: function () {
+                return{
+                    red: this.attractive,
+                    blue: !this.attractive
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>

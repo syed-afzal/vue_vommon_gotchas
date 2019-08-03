@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <h1>    Original Message : {{ message }} | {{ message2 }}  </h1>
+    <h2>    Reverse Message :  {{ reversMessage }}  </h2>
+    <button @click="message2='this is it'">Click me</button>
+    <p>{{ checker() }}</p>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            message2:'Hello Afzal!',
+            message: 'Goodbye'
+        },
+        computed:{
+            reversMessage: function () {
+                console.log('It is called');
+                return this.message2.split('').reverse().join('');
+            }
+        },
+        methods:{
+            checker: function () {
+                console.log('Called')
+            }
+        }
+    })
+</script>
+</body>
+</html>

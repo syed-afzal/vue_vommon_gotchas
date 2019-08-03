@@ -1,0 +1,8 @@
+#modules
+node_modules/
+
+#playground
+playground/
+
+#idea
+.idea/

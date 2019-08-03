@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue JS</title>
+    <script src="../vue.js"></script>
+
+    <style>
+        .demo{
+            width: 100px;
+            height: 100px;
+            background-color: grey;
+            display: inline-block;
+            margin: 10px;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+
+<div id="app">
+    <div class="demo" :style="{'background-color': color}"></div>
+    <div class="demo" :style="myStyle"></div>
+
+<!--    styling elements with array syntax-->
+    <div class="demo" :style="[myStyle, {height: width + 'px'}]"></div>
+
+    <input type="text" v-model="color"/>
+    <input type="text" v-model="width"/>
+</div>
+
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            color: 'blue',
+            width: 100
+        },
+        computed:{
+            myStyle: function () {
+                return{
+                    'background-color': this.color,
+                    width: this.width + 'px'
+                }
+            }
+        }
+    })
+</script>
+</body>
+</html>
