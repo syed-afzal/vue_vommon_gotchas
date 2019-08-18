@@ -8,12 +8,18 @@
 </template>
 
 <script>
+
+  import { eventBus } from  '../main'
+
   export default {
     props: [ 'userAge' ],
     methods: {
       editAge(){
         this.userAge= 30
-        this.$emit('ageWasChanged', this.userAge)
+        // this.$emit('ageWasChanged', this.userAge)
+
+        //event bus will only changed data here and listen on other child without invoking parent
+        eventBus.$emit('ageWasChanged', this.userAge)
       }
     }
   }
