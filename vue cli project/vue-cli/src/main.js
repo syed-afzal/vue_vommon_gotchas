@@ -3,7 +3,7 @@ import App from './App.vue'
 import Home from './Home'
 
 //registring component globally
-Vue.component('app-server-status', Home);
+Vue.component('app-servers', Home);
 
 new Vue({
   el: '#app',
