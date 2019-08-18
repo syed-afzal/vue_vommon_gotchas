@@ -9,6 +9,7 @@
                 <app-user-detail
                   :myName="name"
                   @nameWasChange="name = $event"
+                  :resetFn="resetName"
                   :userAge="age"
                 ></app-user-detail>
             </div>
@@ -33,6 +34,11 @@
         methods:{
           changeName() {
             this.name = 'Afzal'
+          },
+          // this function is passing as a prop of callback function for child to parent communication
+          // this is the second way to achieve after event emitter
+          resetName() {
+            this.name = 'Syed'
           }
         },
         components: {

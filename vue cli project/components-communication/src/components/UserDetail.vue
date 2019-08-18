@@ -5,6 +5,7 @@
         <p>My name: {{ myName }}</p>
         <p>User age: {{ userAge }}</p>
         <button @click="resetName">Reset name</button>
+        <button @click="resetFn()">Reset name with call back function</button>
     </div>
 </template>
 
@@ -19,6 +20,9 @@
       },
       userAge: {
         type: Number
+      },
+      resetFn: {
+        type: Function
       }
     },
     methods:{
