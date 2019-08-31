@@ -2,12 +2,21 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <app-quote>
-<!--          split slot into multiple-->
-          <h2 slot="title">The Quote</h2>
-          <p>A wonderful quote</p>
-<!--          <p slot="subtitle">My Title</p>-->
-        </app-quote>
+
+<!--        dynamically load components-->
+        <button @click="slectedComponent= 'appQuote'">Quote</button>
+        <button @click="slectedComponent= 'appAuthor'">Author</button>
+        <button @click="slectedComponent= 'appNew'">New</button>
+        <hr/>
+        {{ slectedComponent }}
+        <component :is="slectedComponent"></component>
+
+<!--        <app-quote>-->
+<!--&lt;!&ndash;          split slot into multiple&ndash;&gt;-->
+<!--          <h2 slot="title">The Quote</h2>-->
+<!--          <p>A wonderful quote</p>-->
+<!--&lt;!&ndash;          <p slot="subtitle">My Title</p>&ndash;&gt;-->
+<!--        </app-quote>-->
       </div>
     </div>
   </div>
@@ -16,11 +25,20 @@
 <script>
 
   import Quote from './components/Quote'
+  import Author from './components/Author'
+  import New from './components/New'
 
 export default {
   name: 'app',
+  data: function() {
+    return {
+      slectedComponent: 'appQuote'
+    }
+  },
   components:{
-    appQuote: Quote
+    appQuote: Quote,
+    appAuthor: Author,
+    appNew: New,
   }
 }
 </script>
