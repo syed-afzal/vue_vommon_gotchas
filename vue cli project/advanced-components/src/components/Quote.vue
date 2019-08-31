@@ -1,13 +1,14 @@
 <template>
     <div>
       <div>
-        <!--      a keyword reserved by vue to output html inside that component-->
         <slot name="title"></slot>
+<!--        example of Slot Default-->
+        <span style="color: #ccc"><slot name="subtitle">The Subtitle</slot></span>
       </div>
       <hr/>
       <div>
-        <!--      a keyword reserved by vue to output html inside that component-->
-        <slot name="content"></slot>
+<!--        example of Default Slot/ if it is not specified-->
+        <slot></slot>
       </div>
     </div>
 </template>

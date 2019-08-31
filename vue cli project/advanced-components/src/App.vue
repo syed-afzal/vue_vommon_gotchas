@@ -5,7 +5,8 @@
         <app-quote>
 <!--          split slot into multiple-->
           <h2 slot="title">The Quote</h2>
-          <p slot="content">A wonderful quote</p>
+          <p>A wonderful quote</p>
+<!--          <p slot="subtitle">My Title</p>-->
         </app-quote>
       </div>
     </div>
