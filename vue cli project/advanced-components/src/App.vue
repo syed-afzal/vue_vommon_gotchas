@@ -3,8 +3,9 @@
     <div class="row">
       <div class="col-xs-12">
         <app-quote>
-          <h2>The Quote</h2>
-          <p>A wonderful quote</p>
+<!--          split slot into multiple-->
+          <h2 slot="title">The Quote</h2>
+          <p slot="content">A wonderful quote</p>
         </app-quote>
       </div>
     </div>

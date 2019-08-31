@@ -1,7 +1,14 @@
 <template>
     <div>
-<!--      a keyword reserved by vue to output html inside that component-->
-      <slot></slot>
+      <div>
+        <!--      a keyword reserved by vue to output html inside that component-->
+        <slot name="title"></slot>
+      </div>
+      <hr/>
+      <div>
+        <!--      a keyword reserved by vue to output html inside that component-->
+        <slot name="content"></slot>
+      </div>
     </div>
 </template>
 
@@ -18,5 +25,8 @@
     margin: 30px auto;
     padding: 30px;
     text-align: center;
+  }
+  h2 {
+    color: red;
   }
 </style>
