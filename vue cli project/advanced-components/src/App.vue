@@ -9,7 +9,16 @@
         <button @click="slectedComponent= 'appNew'">New</button>
         <hr/>
         {{ slectedComponent }}
-        <component :is="slectedComponent"></component>
+
+<!--        component re-innitialized when you come to particaular component-->
+
+        <!--        <component :is="slectedComponent"></component>-->
+
+<!--        now component is not innitialized every time-->
+
+        <keep-alive>
+          <component :is="slectedComponent"></component>
+        </keep-alive>
 
 <!--        <app-quote>-->
 <!--&lt;!&ndash;          split slot into multiple&ndash;&gt;-->
