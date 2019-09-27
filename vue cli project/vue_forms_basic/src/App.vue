@@ -72,13 +72,15 @@
                         <input
                                 type="radio"
                                 id="male"
-                                value="Male"> Male
+                                value="Male"
+                                v-model="gender"> Male
                     </label>
                     <label for="female">
                         <input
                                 type="radio"
                                 id="female"
-                                value="Female"> Female
+                                value="Female"
+                                v-model="gender"> Female
                     </label>
                 </div>
             </div>
@@ -87,8 +89,16 @@
                     <label for="priority">Priority</label>
                     <select
                             id="priority"
-                            class="form-control">
-                        <option></option>
+                            class="form-control"
+                            v-model="selectedPriority">
+                        <option v-for="priority in priorities"> {{ priority }} </option>
+
+<!--                        to make default value selected if you don't have any property used this -->
+<!--                        otherwise v-model does the work for default selected-->
+<!--                            if you used both v-model and the below syntax v-model overwrite this-->
+
+<!--                        <option v-for="priority in priorities"-->
+<!--                                :selected="priority === 'Medium'"> {{ priority }} </option>-->
                     </select>
                 </div>
             </div>
@@ -117,8 +127,8 @@
                         <ul>
                             <li v-for="item in sendMail"> {{ item }} </li>
                         </ul>
-                        <p>Gender:</p>
-                        <p>Priority:</p>
+                        <p>Gender: {{ gender }}</p>
+                        <p>Priority: {{ selectedPriority }}</p>
                         <p>Switched:</p>
                     </div>
                 </div>
@@ -137,7 +147,10 @@
                     age: 27
                 },
                 message: 'A Little text',
-                sendMail: []
+                sendMail: [],
+                gender: 'Male',
+                priorities: ['High', 'Medium', 'Low'],
+                selectedPriority: 'Medium'
             }
         }
     }
