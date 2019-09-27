@@ -41,7 +41,8 @@
                     <textarea
                             id="message"
                             rows="5"
-                            class="form-control"></textarea>
+                            class="form-control"
+                            v-model="messsage"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -51,13 +52,15 @@
                             <input
                                     type="checkbox"
                                     id="sendmail"
-                                    value="SendMail"> Send Mail
+                                    value="SendMail"
+                                    v-model="sendMail"> Send Mail
                         </label>
                         <label for="sendInfomail">
                             <input
                                     type="checkbox"
                                     id="sendInfomail"
-                                    value="SendInfoMail"> Send Infomail
+                                    value="SendInfoMail"
+                                    v-model="sendMail"> Send Infomail
                         </label>
                     </div>
 
@@ -109,10 +112,10 @@
                         <p>Mail: {{ userData.email }}</p>
                         <p>Password: {{ userData.password }}</p>
                         <p>Age: {{ userData.age }}</p>
-                        <p>Message: </p>
+                        <p>Message: {{ message }}</p>
                         <p><strong>Send Mail?</strong></p>
                         <ul>
-                            <li></li>
+                            <li v-for="item in sendMail"> {{ item }} </li>
                         </ul>
                         <p>Gender:</p>
                         <p>Priority:</p>
@@ -127,10 +130,14 @@
 <script>
     export default {
         data() {
-            userData = {
-                email: '',
-                password: '',
-                age: 27
+            return {
+                userData: {
+                    email: '',
+                    password: '',
+                    age: 27
+                },
+                message: 'A Little text',
+                sendMail: []
             }
         }
     }
