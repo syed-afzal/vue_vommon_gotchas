@@ -113,6 +113,11 @@
                     </select>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+                    <app-switch v-model="dataSwitch"></app-switch>
+                </div>
+            </div>
             <hr>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
@@ -149,6 +154,8 @@
 </template>
 
 <script>
+    import Switched from './Switch';
+    //import Quote from "./Quote"
     export default {
         data() {
             return {
@@ -164,6 +171,9 @@
                 selectedPriority: 'Medium',
                 dataSwitch: true
             }
+        },
+        components:{
+            appSwitch: Switched
         }
     }
 </script>
