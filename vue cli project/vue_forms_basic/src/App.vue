@@ -12,6 +12,17 @@
                                 type="text"
                                 id="email"
                                 class="form-control">
+
+<!--                        this is how v-model works takes two things one
+                            * binding with a value
+                            * event-emitter-->
+
+<!--                        <input-->
+<!--                                v-bind:value="userData.email"-->
+<!--                                @input="userData.email = $event.target.value"-->
+<!--                                type="text"-->
+<!--                                id="email"-->
+<!--                                class="form-control">-->
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
@@ -42,7 +53,7 @@
                             id="message"
                             rows="5"
                             class="form-control"
-                            v-model="messsage"></textarea>
+                            v-model="message"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -129,7 +140,7 @@
                         </ul>
                         <p>Gender: {{ gender }}</p>
                         <p>Priority: {{ selectedPriority }}</p>
-                        <p>Switched:</p>
+                        <p>Switched: {{ dataSwitch }}</p>
                     </div>
                 </div>
             </div>
@@ -150,7 +161,8 @@
                 sendMail: [],
                 gender: 'Male',
                 priorities: ['High', 'Medium', 'Low'],
-                selectedPriority: 'Medium'
+                selectedPriority: 'Medium',
+                dataSwitch: true
             }
         }
     }
