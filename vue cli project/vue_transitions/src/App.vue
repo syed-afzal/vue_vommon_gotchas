@@ -10,7 +10,7 @@
         <transition name="fade">
           <div class="alert alert-info" v-if="show">This is some info</div>
         </transition>
-        <transition name="slide">
+        <transition name="slide" appear>
           <div class="alert alert-info" v-if="show">This is some info</div>
         </transition>
       </div>
@@ -23,7 +23,7 @@
     name: 'app',
     data() {
       return {
-        show: false
+        show: true
       }
     }
   }
