@@ -4,13 +4,26 @@
       <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
         <h1>Animations</h1>
         <br><br>
+        <select v-model="alertAnimation" class="form-control">
+          <option value="fade">Fade</option>
+          <option value="slide">Slide</option>
+        </select>
+        <br><br>
         <button class="btn btn-primary" @click="show = !show">
           Show Alert
         </button>
-        <transition name="fade">
+        <br><br>
+        <transition :name="alertAnimation">
           <div class="alert alert-info" v-if="show">This is some info</div>
         </transition>
         <transition name="slide" appear>
+          <div class="alert alert-info" v-if="show">This is some info</div>
+        </transition>
+        <transition
+          appear
+          enter-active-class="animated bounce"
+          leave-active-class="animated shake"
+        >
           <div class="alert alert-info" v-if="show">This is some info</div>
         </transition>
       </div>
@@ -23,7 +36,8 @@
     name: 'app',
     data() {
       return {
-        show: true
+        show: true,
+        alertAnimation:'fade'
       }
     }
   }
