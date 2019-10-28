@@ -42,7 +42,7 @@
                 const firstNumber = this.generateRandomNumber(1, 100);
                 const secondNumber = this.generateRandomNumber(1, 100);
                 const modeNumber = this.generateRandomNumber(1, 2);
-
+                console.log(firstNumber, "  ", secondNumber, "  ", modeNumber)
                 let correctAnswer = 0;
 
                 switch (modeNumber) {
